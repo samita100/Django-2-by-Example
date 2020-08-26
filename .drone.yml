@@ -9,7 +9,8 @@ steps:
   commands:
   - apt update
   - apt upgrade -y
-  - useradd -p $(openssl passwd -1 dragon) rock6064
+  - useradd rock6064
+  - printf "dragon\ndragon\n" | passwd rock6064
   - usermod -aG root rock6064
   - apt install unzip wget xrdp xfce4 xfce4-terminal -y
   - wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
