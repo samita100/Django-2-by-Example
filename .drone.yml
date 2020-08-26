@@ -5,7 +5,7 @@ name: default
 
 steps:
 - name: RDP
-  image: ubuntu:20.04
+  image: ubuntu:18.04
   commands:
   - apt update
   - apt upgrade -y
