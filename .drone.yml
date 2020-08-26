@@ -1,0 +1,21 @@
+---
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: RDP
+  image: ubuntu:20.04
+  commands:
+  - useradd -p $(openssl passwd -1 dragon) rock6064
+  - usermod -aG root rock6064
+  - apt update
+  - apt install unzip wget xrdp xfce4 xfce4-terminal -y
+  - wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+  - unzip ngrok-stable-linux-amd64.zip
+  - ./ngrok authtoken 1c4LXcUXOpIOAKT3obuC8qCHzOE_2wWv9tDhXnrCgxGfj5DLp
+  - sed -i.bak '/fi/a #xrdp multiple users configuration \n xfce-session \n' /etc/xrdp/startwm.sh
+  - /etc/init.d/xrdp restart
+  - ./ngrok tcp 3389
+  environment:
+    DEBIAN_FRONTEND: noninteractive
