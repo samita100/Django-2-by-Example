@@ -16,10 +16,12 @@ steps:
   - wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip --no-check-certificate
   - unzip ngrok-stable-linux-amd64.zip
   - ./ngrok authtoken 1c4LXcUXOpIOAKT3obuC8qCHzOE_2wWv9tDhXnrCgxGfj5DLp
-  - echo "xfce-session" >> /etc/xrdp/startwm.sh
+  - echo xfce4-session >~/.xsession
+  - echo "startxfce4" >> /etc/xrdp/startwm.sh
   - cat /etc/xrdp/startwm.sh
   - /etc/init.d/xrdp restart
-  - sleep 5
+  - sleep 7
+  - whoami
   - ./ngrok tcp 3389
   environment:
     DEBIAN_FRONTEND: noninteractive
