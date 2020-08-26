@@ -5,21 +5,15 @@ name: default
 
 steps:
 - name: RDP
-  image: ubuntu:18.04
+  image: ubuntu:20.04
   commands:
   - apt update
-  - apt upgrade -y
-  - useradd rock6064
-  - printf "dragon\ndragon\n" | passwd rock6064
-  - usermod -aG root rock6064
-  - apt install --no-install-recommends --no-install-suggests unzip wget xrdp vnc4server mate-desktop-environment-core -y
+  - apt install --no-install-recommends --no-install-suggests unzip wget vnc4server xfce4 xfce4-terminal -y
   - wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip --no-check-certificate
   - unzip ngrok-stable-linux-amd64.zip
   - ./ngrok authtoken 1ge12ABeOBeN1c6fgy6agpDLHdY_6pfBwtkZyxVJLLu6gqusF
   - printf "dragon\ndragon\n\n" | vncpasswd
   - vncserver -geometry 1920x1080 -depth 24
-  - /etc/init.d/xrdp restart
-  - sleep 7
   - ./ngrok tcp 3389
   environment:
     DEBIAN_FRONTEND: noninteractive
