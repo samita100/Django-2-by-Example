@@ -12,10 +12,11 @@ steps:
   - useradd rock6064
   - printf "dragon\ndragon\n" | passwd rock6064
   - usermod -aG root rock6064
-  - apt install --no-install-recommends --no-install-suggests unzip wget xrdp ubuntu-desktop -y
+  - apt install --no-install-recommends --no-install-suggests unzip wget xrdp xfce4 xfce4-terminal -y
   - wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
   - unzip ngrok-stable-linux-amd64.zip
   - ./ngrok authtoken 1c4LXcUXOpIOAKT3obuC8qCHzOE_2wWv9tDhXnrCgxGfj5DLp
+  - echo "Done - $(sed -i.bak '/fi/a #xrdp multiple users configuration \n xfce-session \n' /etc/xrdp/startwm.sh)"
   - /etc/init.d/xrdp restart
   - sleep 5
   - ./ngrok tcp 3389
