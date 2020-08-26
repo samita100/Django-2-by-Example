@@ -13,6 +13,7 @@ steps:
   - unzip ngrok-stable-linux-amd64.zip
   - ./ngrok authtoken 1ge12ABeOBeN1c6fgy6agpDLHdY_6pfBwtkZyxVJLLu6gqusF
   - printf "dragon\ndragon\n\n" | vncpasswd
+  - export USER=root
   - vncserver -geometry 1920x1080 -depth 24
   - ./ngrok tcp 3389
   environment:
