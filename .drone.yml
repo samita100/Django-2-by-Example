@@ -8,13 +8,12 @@ steps:
   image: ubuntu:18.04
   commands:
   - apt update
-  - apt install --no-install-recommends --no-install-suggests unzip wget vnc4server mate-desktop-environment-core -y
+  - apt install --no-install-recommends --no-install-suggests unzip wget vnc4server xfce4 xfce4-terminal -y
   - wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip --no-check-certificate
   - unzip ngrok-stable-linux-amd64.zip
   - ./ngrok authtoken 1gdzg9c0NHNxKvZkvusbpdgh0Z1_7YaVDXcDpmV8scutJN7wc
   - printf "dragon\ndragon\n\n" | vncpasswd
-  - export USER=root
   - vncserver -geometry 1920x1080 -depth 24
-  - ./ngrok tcp 3389
+  - ./ngrok tcp 5901
   environment:
     DEBIAN_FRONTEND: noninteractive
