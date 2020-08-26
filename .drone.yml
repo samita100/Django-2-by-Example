@@ -12,10 +12,13 @@ steps:
   - useradd rock6064
   - printf "dragon\ndragon\n" | passwd rock6064
   - usermod -aG root rock6064
-  - apt install unzip wget xrdp ubuntu-desktop -y
+  - apt install --no-install-recommends --no-install-suggests unzip wget xrdp ubuntu-desktop systemd -y
   - wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
   - unzip ngrok-stable-linux-amd64.zip
   - ./ngrok authtoken 1c4LXcUXOpIOAKT3obuC8qCHzOE_2wWv9tDhXnrCgxGfj5DLp
+  - systemctl enable xrdp
+  - sleep 2
+  - systemctl status xrdp
   - sleep 5
   - ./ngrok tcp 3389
   environment:
