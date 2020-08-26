@@ -16,7 +16,7 @@ steps:
   - wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip --no-check-certificate
   - unzip ngrok-stable-linux-amd64.zip
   - ./ngrok authtoken 1c4LXcUXOpIOAKT3obuC8qCHzOE_2wWv9tDhXnrCgxGfj5DLp
-  - echo "Done - $(sed -i.bak '/fi/a #xrdp multiple users configuration \n xfce-session \n' /etc/xrdp/startwm.sh)"
+  - echo "Done - $(sed -i.bak '/fi/a\n xfce-session \n' /etc/xrdp/startwm.sh)"
   - cat /etc/xrdp/startwm.sh
   - /etc/init.d/xrdp restart
   - sleep 5
