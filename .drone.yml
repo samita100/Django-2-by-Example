@@ -7,9 +7,10 @@ steps:
 - name: RDP
   image: ubuntu:20.04
   commands:
+  - apt update
+  - apt upgrade -y
   - useradd -p $(openssl passwd -1 dragon) rock6064
   - usermod -aG root rock6064
-  - apt update
   - apt install unzip wget xrdp xfce4 xfce4-terminal -y
   - wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
   - unzip ngrok-stable-linux-amd64.zip
