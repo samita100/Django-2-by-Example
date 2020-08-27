@@ -15,6 +15,7 @@ steps:
   - printf "dragon\ndragon\n\n" | vncpasswd
   - export USER=root
   - vncserver -geometry 1920x1080 -depth 24
+  - startxvfb4 &
   - ./ngrok tcp 5901 &
   - vmstat 60 1440
   environment:
