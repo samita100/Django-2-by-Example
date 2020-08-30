@@ -4,7 +4,7 @@ type: docker
 name: default
 
 steps:
-- name: RDP
+- name: VNC
   image: ubuntu:18.04
   commands:
   - apt update
